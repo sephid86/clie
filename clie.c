@@ -8,7 +8,7 @@
 #include <gtk/gtk.h>
 #include <pthread.h>
 
-#define SERV_IP "192.168.0.100" //서버 IP 주소
+#define SERV_IP "127.0.0.1" //서버 IP 주소
 #define PORT 8282 //서버 포트 번호
 #define BUFFER_SIZE 256 //송수신 버퍼 크기
 #define CHAT_CODE "&($@" //채팅 코드(서버쪽과 일치해야함)

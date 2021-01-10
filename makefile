@@ -13,7 +13,7 @@ CC=gcc
 
 #디버그 옵션
 DEBUG=-g
-OPT=-O0
+OPTI=-O2
 WARN=-Wall
 
 #쓰레드 라이브러리
@@ -29,8 +29,8 @@ GTKLIB=`pkg-config --cflags --libs gtk+-3.0` -export-dynamic
 CFLAGS=$(PTHREAD) $(PIPE) $(GTKLIB)
 
 all:
-	$(CC) -c $(SRCS) $(CFLAGS)
-	$(CC) -o $(TARGET) $(OBJS) $(CFLAGS)
+	$(CC) $(OPTI) -c $(SRCS) $(CFLAGS)
+	$(CC) $(OPTI) -o $(TARGET) $(OBJS) $(CFLAGS)
 
 clean:
 	rm -f $(OBJS)
