@@ -23,14 +23,15 @@ PTHREAD=-pthread
 PIPE=-pipe
 
 #GTK 라이브러리
-GTKLIB=`pkg-config --cflags --libs gtk+-3.0` -export-dynamic
+GTKLIB=`pkg-config --cflags --libs gtk+-3.0` -export-dynamic -no-pie
 
 #최종옵션
-CFLAGS=$(PTHREAD) $(PIPE) $(GTKLIB)
+TOTAL=$(PTHREAD) $(PIPE) $(GTKLIB)
 
 all:
-	$(CC) $(OPTI) -c $(SRCS) $(CFLAGS)
-	$(CC) $(OPTI) -o $(TARGET) $(OBJS) $(CFLAGS)
+#	$(CC) $(OPTI) -c $(SRCS) $(TOTAL)
+#	$(CC) $(OPTI) -o $(TARGET) $(OBJS) $(TOTAL)
+	$(CC) $(OPTI) -o $(TARGET) $(SRCS) $(TOTAL)
 
 clean:
 	rm -f $(OBJS)
