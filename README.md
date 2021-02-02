@@ -4,7 +4,7 @@ http://k-lint.net
 
 This is a chat program for learn GTK.
 
-This is for koreans.
+This is for Koreans.
 
 --- 필요사항 ---
 
