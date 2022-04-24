@@ -1,6 +1,6 @@
 # clie
 프로그래밍 학습을 목적으로 만든 리눅스 GTK 채팅 프로그램입니다.
-http://k-lint.net
+http://k-lint.net (도메인 비용을 지불하지 못해 접속 불가입니다. ㅠㅠ)
 
 This is a chat program for learn GTK.
 
@@ -10,35 +10,17 @@ This is for Koreans.
 
 에코 기능이 가능한 server 가 필요합니다.
 
-에코 기능이 가능한 server 프로그램이 없으신 분들을 위해
+---
 
-컴파일 해둔 루티에 server 바이너리 파일을 함께 첨부합니다.
+GTK 를 이용한 GUI chat client example. (use thread) 입니다.
 
-첨부한 server 바이너리 파일은 환경에 따라 실행되지 않을수 있습니다.
+보통 client 는 socket 을 recieve 하기 위한 thread 가 필요한데
 
---- 사용법 ---
+GTK 를 이용한 GUI 환경에서는 이 socket recieve thread 가
 
-다운 받으시거나 클론 하신 다음
+error 를 발생시킵니다.
 
--서버에 실행권한을 주고 실행시킵니다.-
+GTK 에서 thread 를 어떤 식으로 처리해야 하는지에 대한 예제 입니다.
 
-chmod +x lutie
-
-./lutie &
-
--클리에 채팅 프로그램 컴파일하고 실행시킵니다.-
-
-make
-
-./clie
-
---- 주의사항 ---
-
-lutie.c 소스파일에서 11번째 라인
-
-서버 IP 주소를 변경해주세요.
-
-서버 프로그램과 채팅 프로그램이 같은 컴퓨터에서
-
-실행될 경우 IP 주소에 127.0.0.1 로 변경 하시면 됩니다.
+간단하게 만든 예제 이므로 의견이 있으실 경우 알려주시면 감사하겠습니다.
 
