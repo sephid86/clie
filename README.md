@@ -26,9 +26,9 @@ GTK 를 이용한 GUI chat client example. (use thread) 입니다.
 
 보통 client 는 socket 을 recieve 하기 위한 thread 가 필요한데
 
-GTK 를 이용한 GUI 환경에서는 이 socket recieve thread 가
+GTK 를 이용한 GUI 환경에서는 
 
-error 를 발생시킵니다.
+socket recieve thread 에서 GTK 함수를 호출하게 되면 error 가 발생합니다.
 
 GTK 에서 thread 를 어떤 식으로 처리해야 하는지에 대한 예제 입니다.
 
