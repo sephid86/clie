@@ -29,6 +29,7 @@ GtkTextBuffer *Buffer;
 
 void EntryActivate();
 void *SockRecv();
+gboolean WidgetShowSafe();
 
 int main(int argc, char *argv[]) {
   //---Socket
@@ -101,9 +102,9 @@ void EntryActivate(GtkEntry *Entry, GtkTextView *TextView) {
 }
 
 void *SockRecv(GtkWidget *TextView) {
-  //  GtkTextIter end_iter;
-  //  gtk_text_buffer_get_end_iter(GTK_TEXT_BUFFER(Buffer), &end_iter);
-  //  GtkTextMark *mark = gtk_text_buffer_create_mark(GTK_TEXT_BUFFER(Buffer), NULL, &end_iter, 1);
+    GtkTextIter end_iter;
+    gtk_text_buffer_get_end_iter(GTK_TEXT_BUFFER(Buffer), &end_iter);
+    //GtkTextMark *mark = gtk_text_buffer_create_mark(GTK_TEXT_BUFFER(Buffer), NULL, &end_iter, 1);
 
   char recv_str[BUFFER_SIZE];
   while(1) {
