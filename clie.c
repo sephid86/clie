@@ -139,8 +139,8 @@ gboolean WidgetShowSafe(MyWidgetGroup *MyWidget) {
   gtk_text_view_scroll_mark_onscreen(GTK_TEXT_VIEW(MyWidget->TextView), mark);
 }
 
-//위 소스코드를 살펴보면 SockRecv 에서 주석처리된 함수들이
-//WidgetShowSafe 함수로 이동한것을 알수 있습니다.
+//위 소스코드를 살펴보면 SockRecv 에서 주석처리된 
+//함수들이 WidgetShowSafe 함수로 이동한것을 알수 있습니다.
 //즉 쓰레드에서 직접 GTK 함수를 호출하는 것은 위험합니다.
 //쓰레드에서 GTK 함수를 호출하려면 g_idle_add 함수를 통해야 합니다.
 //그리고 GUI 화면출력과 관련된 GTK 함수가 아니라면.
