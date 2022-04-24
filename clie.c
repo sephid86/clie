@@ -23,6 +23,7 @@
 //전역변수는 g_스네이크 표기법으로 한다.
 //괄호는 K&R 스타일로 한다.
 //들여쓰기는 스페이스바 2칸 으로 한다.
+
 typedef struct {
   GtkWidget *TextView;
   char recv_str[BUFFER_SIZE];
@@ -144,6 +145,6 @@ gboolean WidgetShowSafe(MyWidgetGroup *MyWidget) {
 //즉 쓰레드에서 직접 GTK 함수를 호출하는 것은 위험합니다.
 //쓰레드에서 GTK 함수를 호출하려면 g_idle_add 함수를 통해야 합니다.
 //그리고 GUI 화면출력과 관련된 GTK 함수가 아니라면.
-//예를 들면 widget 의 내용을 변경하는 GTK 함수 같은것들은
+//예를 들어 widget 의 내용을 변경하는 GTK 함수 같은것들은
 //쓰레드에서 직접 호출해도 왠만해선 문제가 없는것 같습니다.
 
