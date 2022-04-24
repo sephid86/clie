@@ -11,6 +11,15 @@ This is for Koreans.
 에코 기능이 가능한 server 가 필요합니다.
 
 ---
+--- 컴파일 방법 ---
+
+$ make
+
+또는 ( or )
+
+$ gcc -o clie *.c `pkg-config --cflags --libs gtk+-3.0` -export-dynamic
+
+---
 
 GTK 를 이용한 GUI chat client example. (use thread) 입니다.
 

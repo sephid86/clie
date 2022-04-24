@@ -26,7 +26,7 @@ PIPE=-pipe
 GTKLIB=`pkg-config --cflags --libs gtk+-3.0` -export-dynamic -no-pie
 
 #최종옵션
-TOTAL=$(PTHREAD) $(PIPE) $(GTKLIB)
+TOTAL=$(GTKLIB)
 
 all:
 #	$(CC) $(OPTI) -c $(SRCS) $(TOTAL)
