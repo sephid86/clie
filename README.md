@@ -1,5 +1,6 @@
 # clie
 프로그래밍 학습을 목적으로 만든 리눅스 GTK 채팅 프로그램입니다.
+
 http://k-lint.net (도메인 비용을 지불하지 못해 접속 불가입니다. ㅠㅠ)
 
 This is a chat program for learn GTK.
