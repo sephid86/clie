@@ -104,7 +104,7 @@ int main(int argc, char *argv[]) {
 void EntryActivate(GtkEntry *Entry, GtkTextView *TextView) {
   const gchar *send_text=gtk_entry_get_text(GTK_ENTRY(Entry));
 
-  write(g_sockfd, send_text, strlen(send_text));
+  write(g_sockfd, send_text, strlen(send_text)*sizeof(gchar));
   gtk_entry_set_text(GTK_ENTRY(Entry), "");
 }
 
