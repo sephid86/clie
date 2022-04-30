@@ -35,23 +35,25 @@ GtkTextBuffer *Buffer;
 void EntryActivate();
 void *SockRecv();
 gboolean WidgetShowSafe();
+gboolean ReadSocket();
 
 int main(int argc, char *argv[]) {
   //---Socket
   g_sockfd=socket(AF_INET, SOCK_STREAM, 0);
 
-  struct sockaddr_in address;
-  address.sin_family=AF_INET;
-  address.sin_addr.s_addr=inet_addr(SERV_IP);
-  address.sin_port=htons(PORT);
+  GError * error = NULL;
 
-  size_t len=sizeof(address);
-  int result=connect(g_sockfd, (struct sockaddr*)&address, len);
+  GSource *src;
+  GIOChannel *channel;
 
-  if(result == -1) {
-    perror("서버 접속에 실패했습니다.");
-    exit(1);
-  }
+  GSocketConnection * connection = NULL;
+  GSocketClient * client = g_socket_client_new();
+
+  connection = g_socket_client_connect_to_host(client, (gchar*)"localhost", 8282, NULL, &error);
+
+  channel = g_io_channel_unix_new(g_sockfd);
+  src = g_io_create_watch(channel, G_IO_IN);
+  g_source_set_callback(src, (GSourceFunc)ReadSocket, NULL, NULL);
 
   gtk_init (&argc, &argv);
 
@@ -91,9 +93,10 @@ int main(int argc, char *argv[]) {
   //--- 이벤트 시그널 등록
   g_signal_connect(Window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
   g_signal_connect(Entry, "activate", G_CALLBACK(EntryActivate), NULL);
+  g_signal_connect(src, "G_IO_IN", G_CALLBACK(EntryActivate), NULL);
 
   //---쓰레드 생성(소켓리시브)
-  GThread *RecvThread=g_thread_new(NULL,(GThreadFunc)SockRecv,MyWidget);
+//  GThread *RecvThread=g_thread_new(NULL,(GThreadFunc)SockRecv,MyWidget);
 
   //---화면에 윈도우 출력
   gtk_widget_show_all(Window);
