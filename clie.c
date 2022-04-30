@@ -37,6 +37,7 @@ void *SockRecv();
 gboolean WidgetShowSafe();
 gboolean ReadSocket();
 
+//--- 이 소스는 아직 작업중 입니다. 완료되지 않아 작동하지 않습니다.
 int main(int argc, char *argv[]) {
   //---Socket
   g_sockfd=socket(AF_INET, SOCK_STREAM, 0);
