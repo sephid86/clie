@@ -4,8 +4,8 @@
 #include <arpa/inet.h>
 
 #define SERV_IP "127.0.0.1" //서버 IP 주소
-#define PORT 5959 //서버 포트 번호
-#define BUFFER_SIZE 2048 //송수신 버퍼 크기
+#define PORT 8282 //서버 포트 번호
+#define BUFFER_SIZE 4096 //송수신 버퍼 크기
 
 /*--------------------
   클리에 For Linux 0.1a
@@ -102,7 +102,8 @@ int main(int argc, char *argv[]) {
 }
 
 void EntryActivate(GtkEntry *Entry, GtkTextView *TextView) {
-  const gchar *send_text=gtk_entry_get_text(GTK_ENTRY(Entry));
+  char send_text[BUFFER_SIZE]={0};
+  sprintf(send_text,"%s",gtk_entry_get_text(GTK_ENTRY(Entry)));
 
   write(g_sockfd, send_text, BUFFER_SIZE);
   gtk_entry_set_text(GTK_ENTRY(Entry), "");
